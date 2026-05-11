@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CNC SmartGuide</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Ícones -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+
+      <div class="logo">
+
+        <i class="fa-solid fa-gears"></i>
+
+        <div>
+          <h1>CNC SmartGuide</h1>
+          <p>Assistente Operacional CNC</p>
+        </div>
+
+      </div>
+
+    </header>
+
+    <main>
+
+      <section class="search-section">
+
+        <h2>Diagnóstico Rápido</h2>
+
+        <p class="subtitle">
+          Pesquise alarmes, falhas e problemas operacionais.
+        </p>
+
+        <select id="machine">
+
+          <option value="">Selecione a máquina</option>
+
+          <option value="romi">TNL 12.1</option>
+
+          <option value="haas">TNL 12.2</option>
+
+          <option value="fanuc">TNL 20</option>
+
+          <option value="citizen">TNL 18</option>
+
+        </select>
+
+        <input
+          type="text"
+          id="problemInput"
+          placeholder="Digite o problema ou alarme..."
+        >
+
+        <button onclick="searchProblem()">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          Buscar Solução
+
+        </button>
+
+      </section>
+
+      <section id="result" class="result-box">
+
+        <div class="empty-state">
+
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+
+          <p>
+            Aguardando pesquisa...
+          </p>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="assets/js/script.js"></script>
+
+</body>
+</html>

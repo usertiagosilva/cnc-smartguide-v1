@@ -1,0 +1,158 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+  background: #0f172a;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container{
+  width: 100%;
+  max-width: 850px;
+  background: #1e293b;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.4);
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.logo i{
+  font-size: 2.5rem;
+  color: #38bdf8;
+}
+
+.logo h1{
+  font-size: 2rem;
+  color: #38bdf8;
+}
+
+.logo p{
+  color: #94a3b8;
+}
+
+.search-section h2{
+  margin-bottom: 10px;
+}
+
+.subtitle{
+  color: #94a3b8;
+  margin-bottom: 25px;
+}
+
+select,
+input{
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 14px;
+  background: #334155;
+  color: white;
+  font-size: 1rem;
+}
+
+input::placeholder{
+  color: #94a3b8;
+}
+
+button{
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: #38bdf8;
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover{
+  background: #0ea5e9;
+}
+
+.result-box{
+  margin-top: 30px;
+  background: #334155;
+  border-radius: 18px;
+  padding: 30px;
+  min-height: 250px;
+}
+
+.empty-state{
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #94a3b8;
+  gap: 15px;
+}
+
+.empty-state i{
+  font-size: 3rem;
+}
+
+.result-title{
+  color: #38bdf8;
+  margin-bottom: 15px;
+}
+
+.priority{
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.priority.high{
+  color: #ef4444;
+}
+
+.priority.medium{
+  color: #facc15;
+}
+
+.priority.low{
+  color: #22c55e;
+}
+
+.steps{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step-item{
+  background: #1e293b;
+  padding: 14px;
+  border-radius: 12px;
+  border-left: 5px solid #38bdf8;
+}
+
+@media(max-width: 768px){
+
+  .container{
+    padding: 25px;
+  }
+
+  .logo{
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
