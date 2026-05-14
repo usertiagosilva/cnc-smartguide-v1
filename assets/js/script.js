@@ -1,3 +1,25 @@
+let problems = [];
+
+async function loadProblems() {
+
+  try {
+
+    const response = await fetch("data/problems.json");
+
+    problems = await response.json();
+
+    console.log("Base de dados carregada:", problems);
+
+  } catch (error) {
+
+    console.error("Erro ao carregar JSON:", error);
+
+  }
+
+}
+
+loadProblems();
+
 function searchProblem() {
 
   const input = document
@@ -5,92 +27,72 @@ function searchProblem() {
     .value
     .toLowerCase();
 
-  const machine = document
+  const selectedMachine = document
     .getElementById("machine")
-    .value;
+    .options[
+      document.getElementById("machine").selectedIndex
+    ].text;
 
   const result = document
     .getElementById("result");
 
-  // SPINDLE TNL 12.1
+  const foundProblem = problems.find(problem => {
 
-  if (input.includes("spindle") && machine === "romi") {
+    const machineMatch =
+      problem.machine === selectedMachine;
+
+    const keywordMatch =
+      problem.keywords.some(keyword =>
+        input.includes(keyword.toLowerCase())
+      );
+
+    return machineMatch && keywordMatch;
+
+  });
+
+  if(foundProblem){
+
+    let priorityClass = "medium";
+    let priorityText = "⚠️ Prioridade Média";
+
+    if(foundProblem.priority === "high"){
+
+      priorityClass = "high";
+      priorityText = "🔴 Prioridade Alta";
+
+    }
+
+    let actionsHTML = "";
+
+    foundProblem.actions.forEach(action => {
+
+      actionsHTML += `
+        <div class="step-item">
+          ${action}
+        </div>
+      `;
+
+    });
 
     result.innerHTML = `
 
       <h2 class="result-title">
-        TNL 12.1 - Alarme de Spindle
+        ${foundProblem.problem}
       </h2>
 
-      <p class="priority medium">
-        ⚠️ Prioridade Média
+      <p class="priority ${priorityClass}">
+        ${priorityText}
       </p>
 
       <div class="steps">
-
-        <div class="step-item">
-          Verificar carga do spindle principal
-        </div>
-
-        <div class="step-item">
-          Conferir refrigeração da máquina
-        </div>
-
-        <div class="step-item">
-          Validar pressão pneumática
-        </div>
-
-        <div class="step-item">
-          Reiniciar equipamento
-        </div>
-
+        ${actionsHTML}
       </div>
 
     `;
 
   }
 
-  // EIXO TNL 20
-
-  else if (input.includes("eixo") && machine === "fanuc") {
-
-    result.innerHTML = `
-
-      <h2 class="result-title">
-        TNL 20 - Falha de Referência do Eixo
-      </h2>
-
-      <p class="priority high">
-        🔴 Prioridade Alta
-      </p>
-
-      <div class="steps">
-
-        <div class="step-item">
-          Conferir sensor de referência
-        </div>
-
-        <div class="step-item">
-          Validar fim de curso
-        </div>
-
-        <div class="step-item">
-          Reiniciar servo drive
-        </div>
-
-        <div class="step-item">
-          Caso persista, consultar Liderança
-        </div>
-
-      </div>
-
-    `;
-
-  }
-
-  // SEM RESULTADO
-
-  else {
+  else{
 
     result.innerHTML = `
 

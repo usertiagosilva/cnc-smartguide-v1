@@ -1,0 +1,149 @@
+[
+  {
+    "machine": "TNL 12.1",
+    "problem": "VARIAÇÃO DE COMPRIMENTO OU PEÇA CORTADA",
+    "keywords": [
+      "comprimento",
+      "peça cortada",
+      "cortada",
+      "variação"
+    ],
+    "priority": "high",
+    "actions": [
+      "Verificar se o empurrador de barras está funcionando corretamente.",
+      "Avaliar ajuste da bucha guia e pressão do gás.",
+      "Avaliar condições da ferramenta do bedame.",
+      "Verificar sobremetal e faceamento da peça.",
+      "Verificar se existem peças presas na pinça do contra fuso.",
+      "Realizar limpeza da bucha guia e guia de barras."
+    ]
+  },
+
+  {
+    "machine": "TNL 12.1",
+    "problem": "MARCAS DO AGARRE DO PEGA NA PEÇA",
+    "keywords": [
+      "marcas",
+      "agarre",
+      "pega",
+      "pinça"
+    ],
+    "priority": "medium",
+    "actions": [
+      "Verificar dimensional da peça.",
+      "Avaliar condições da ferramenta do bedame.",
+      "Verificar condições visuais da pinça.",
+      "Verificar pressão mecânica e hidráulica da pinça do pega."
+    ]
+  },
+
+  {
+    "machine": "TNL 12.1",
+    "problem": "REBARBAS EXTERNAS",
+    "keywords": [
+      "rebarba",
+      "rebarbas",
+      "externa"
+    ],
+    "priority": "medium",
+    "actions": [
+      "Avaliar condições das ferramentas.",
+      "Avaliar dimensional da peça.",
+      "Verificar refrigeração das ferramentas.",
+      "Avaliar altura das ferramentas."
+    ]
+  },
+
+  {
+    "machine": "TNL 12.1",
+    "problem": "REBARBAS INTERNAS",
+    "keywords": [
+      "rebarba interna",
+      "rebarba",
+      "interna"
+    ],
+    "priority": "medium",
+    "actions": [
+      "Avaliar condições das ferramentas.",
+      "Avaliar dimensional da peça.",
+      "Verificar refrigeração de alta pressão.",
+      "Avaliar altura das ferramentas."
+    ]
+  },
+
+  {
+    "machine": "TNL 12.1",
+    "problem": "NÃO EJETA PEÇA",
+    "keywords": [
+      "não ejeta",
+      "ejeta",
+      "peça presa",
+      "ejeção"
+    ],
+    "priority": "high",
+    "actions": [
+      "Verificar pressão pneumática da ejeção.",
+      "Avaliar presença de cavacos na região do extrator.",
+      "Conferir alinhamento do sistema de ejeção.",
+      "Verificar desgaste mecânico do mecanismo de ejeção.",
+      "Realizar limpeza da região do contra fuso."
+    ]
+  },
+
+  {
+    "machine": "TNL 12.1",
+    "problem": "QUEBRAS DE FERRAMENTAS DO $4",
+    "keywords": [
+      "quebra ferramenta",
+      "$4",
+      "ferramenta 4",
+      "quebra"
+    ],
+    "priority": "high",
+    "actions": [
+      "Verificar avanço programado.",
+      "Avaliar desgaste da ferramenta.",
+      "Conferir altura da ferramenta.",
+      "Verificar refrigeração da operação.",
+      "Avaliar interferências mecânicas e colisões."
+    ]
+  },
+
+  {
+    "machine": "TNL 12.1",
+    "problem": "QUEBRAS DE FERRAMENTAS DO $3",
+    "keywords": [
+      "$3",
+      "ferramenta 3",
+      "quebra ferramenta",
+      "quebra"
+    ],
+    "priority": "high",
+    "actions": [
+      "Verificar avanço e rotação utilizados.",
+      "Avaliar desgaste da ferramenta.",
+      "Conferir refrigeração da usinagem.",
+      "Verificar altura e alinhamento da ferramenta.",
+      "Inspecionar possíveis vibrações no processo."
+    ]
+  },
+
+  {
+    "machine": "TNL 12.1",
+    "problem": "AJUSTES BICO DE USINAGEM",
+    "keywords": [
+      "bico",
+      "usinagem",
+      "ajuste bico",
+      "refrigeração"
+    ],
+    "priority": "medium",
+    "actions": [
+      "Verificar direcionamento do fluido refrigerante.",
+      "Ajustar posição do bico de refrigeração.",
+      "Conferir pressão da refrigeração.",
+      "Avaliar acúmulo de cavacos na região.",
+      "Validar refrigeração correta da ferramenta utilizada."
+    ]
+  }
+]
