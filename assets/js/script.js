@@ -1,18 +1,41 @@
 let problems = [];
 
-async function loadProblems() {
+let selectedMachine = "";
 
-  try {
+const problemSelect =
+  document.getElementById("problemSelect");
 
-    const response = await fetch("data/problems.json");
+const result =
+  document.getElementById("result");
 
-    problems = await response.json();
+const machineCards =
+  document.querySelectorAll(".machine-card");
 
-    console.log("Base de dados carregada:", problems);
+/* CARREGA JSON */
 
-  } catch (error) {
+async function loadProblems(){
 
-    console.error("Erro ao carregar JSON:", error);
+  try{
+
+    const response =
+      await fetch("data/problems.json");
+
+    problems =
+      await response.json();
+
+    console.log(
+      "Base carregada:",
+      problems
+    );
+
+  }
+
+  catch(error){
+
+    console.error(
+      "Erro ao carregar JSON:",
+      error
+    );
 
   }
 
@@ -20,56 +43,172 @@ async function loadProblems() {
 
 loadProblems();
 
-function searchProblem() {
+/* SELEÇÃO DA MÁQUINA */
 
-  const input = document
-    .getElementById("problemInput")
-    .value
-    .toLowerCase();
+machineCards.forEach(card => {
 
-  const selectedMachine = document
-    .getElementById("machine")
-    .options[
-      document.getElementById("machine").selectedIndex
-    ].text;
+  card.addEventListener("click", () => {
 
-  const result = document
-    .getElementById("result");
+    /* REMOVE SELEÇÃO ANTERIOR */
 
-  const foundProblem = problems.find(problem => {
+    machineCards.forEach(c =>
+      c.classList.remove("active")
+    );
 
-    const machineMatch =
-      problem.machine === selectedMachine;
+    /* ADICIONA CARD ATIVO */
 
-    const keywordMatch =
-      problem.keywords.some(keyword =>
-        input.includes(keyword.toLowerCase())
-      );
+    card.classList.add("active");
 
-    return machineMatch && keywordMatch;
+    /* PEGA NOME DA MÁQUINA */
+
+    selectedMachine =
+      card.dataset.machine;
+
+    console.log(
+      "Máquina selecionada:",
+      selectedMachine
+    );
+
+    /* CARREGA PROBLEMAS */
+
+    loadProblemOptions();
+
+    /* LIMPA RESULTADO */
+
+    result.innerHTML = `
+
+      <div class="empty-state">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        <p>
+          Selecione um problema para visualizar a solução.
+        </p>
+
+      </div>
+
+    `;
 
   });
 
+});
+
+/* CARREGA PROBLEMAS DA MÁQUINA */
+
+function loadProblemOptions(){
+
+  /* LIMPA SELECT */
+
+  problemSelect.innerHTML = `
+
+    <option value="">
+      Selecione o problema
+    </option>
+
+  `;
+
+  /* FILTRA PROBLEMAS */
+
+  const filteredProblems =
+    problems.filter(problem =>
+      problem.machine === selectedMachine
+    );
+
+  /* ADICIONA OPTIONS */
+
+  filteredProblems.forEach(problem => {
+
+    const option =
+      document.createElement("option");
+
+    option.value =
+      problem.problem;
+
+    option.textContent =
+      problem.problem;
+
+    problemSelect.appendChild(option);
+
+  });
+
+}
+
+/* MOSTRA SOLUÇÃO */
+
+function showSolution(){
+
+  const selectedProblem =
+    problemSelect.value;
+
+  /* VALIDA MÁQUINA */
+
+  if(!selectedMachine){
+
+    result.innerHTML = `
+
+      <div class="empty-state">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+        <p>
+          Selecione uma máquina.
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+  /* VALIDA PROBLEMA */
+
+  if(!selectedProblem){
+
+    result.innerHTML = `
+
+      <div class="empty-state">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+        <p>
+          Selecione um problema.
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+  /* PROCURA PROBLEMA */
+
+  const foundProblem =
+    problems.find(problem =>
+
+      problem.machine === selectedMachine &&
+
+      problem.problem === selectedProblem
+
+    );
+
+  /* SE ENCONTRAR */
+
   if(foundProblem){
-
-    let priorityClass = "medium";
-    let priorityText = "⚠️ Prioridade Média";
-
-    if(foundProblem.priority === "high"){
-
-      priorityClass = "high";
-      priorityText = "🔴 Prioridade Alta";
-
-    }
 
     let actionsHTML = "";
 
     foundProblem.actions.forEach(action => {
 
       actionsHTML += `
+
         <div class="step-item">
           ${action}
         </div>
+
       `;
 
     });
@@ -80,10 +219,6 @@ function searchProblem() {
         ${foundProblem.problem}
       </h2>
 
-      <p class="priority ${priorityClass}">
-        ${priorityText}
-      </p>
-
       <div class="steps">
         ${actionsHTML}
       </div>
@@ -92,17 +227,21 @@ function searchProblem() {
 
   }
 
+  /* NÃO ENCONTRADO */
+
   else{
 
     result.innerHTML = `
 
-      <h2 class="result-title">
-        Nenhuma solução encontrada
-      </h2>
+      <div class="empty-state">
 
-      <p>
-        Tente pesquisar outro termo ou consulte a Liderança.
-      </p>
+        <i class="fa-solid fa-circle-xmark"></i>
+
+        <p>
+          Problema não encontrado.
+        </p>
+
+      </div>
 
     `;
 

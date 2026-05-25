@@ -10,12 +10,12 @@
     ],
     "priority": "high",
     "actions": [
-      "Verificar se o empurrador de barras está funcionando corretamente.",
-      "Avaliar ajuste da bucha guia e pressão do gás.",
-      "Avaliar condições da ferramenta do bedame.",
-      "Verificar sobremetal e faceamento da peça.",
+      "Verificar se o empurrador de barras está funcionando (mecânico e automático). No caso do IEMCA avaliar parte mecânica do empurrador e parametros do empurrador.",
+      "Verificar ajuste da bucha guia (média e alta pressão) deixar a barra deslizante. Avaliar pressão do gás (ideal acima de 40 bar / consideravél até 35 bar). se caso estiver baixa abrir chamado para a manutenção completar.",
+      "Avaliar condições da ferramenta do bedame, suporte do bedame, parafuso, anel do suporte, alojamento do bedame e se está na altura a ferramenta.",
+      "Verificar se após sangrar a peça está faceando a barra no fuso principal com a ferramenta de desbaste ou acabamento. (0.1 de retirada de material)  Corregir no $1 torre 1.(- Diminui / + Aumenta o sobremetal).             Verificar se a peça está com sobremetal (COMP. TOTAL DA PEÇA + 0.1), retirada do contra fuso. Corregir no $1 torre 21. (+ Diminui / - Aumenta o sobremetal).",
       "Verificar se existem peças presas na pinça do contra fuso.",
-      "Realizar limpeza da bucha guia e guia de barras."
+      "Realizar a limpeza da bucha guia e da guia de barras e avaliar fixação do conjunto de bucha guia e o oring(borracha de vedação do hidráulico) do conjunto."
     ]
   },
 
@@ -30,10 +30,10 @@
     ],
     "priority": "medium",
     "actions": [
-      "Verificar dimensional da peça.",
-      "Avaliar condições da ferramenta do bedame.",
+      "Verificar dimensional da peça (principalmente o diâmetro aonde a pinça do pega vai agarrar a peça).",
+      "Avaliar condições da ferramenta do bedame, suporte do bedame, parafuso, anel do suporte, alojamento do bedame e se está na altura a ferramenta (X e Y). Conferir o corretor e dados T do sangrador ( exemplo: T1 Z0 X110 T21 Z-1 X110).",
       "Verificar condições visuais da pinça.",
-      "Verificar pressão mecânica e hidráulica da pinça do pega."
+      "Verificar a pressão mecânica e hidráulica da pinça do pega no contra fuso."
     ]
   },
 
@@ -49,8 +49,8 @@
     "actions": [
       "Avaliar condições das ferramentas.",
       "Avaliar dimensional da peça.",
-      "Verificar refrigeração das ferramentas.",
-      "Avaliar altura das ferramentas."
+      "Verificar as refrigerações se estão direcionadas corretamente.",
+      "Avaliar altura das ferramentas, passar relógio."
     ]
   },
 
@@ -65,9 +65,9 @@
     "priority": "medium",
     "actions": [
       "Avaliar condições das ferramentas.",
-      "Avaliar dimensional da peça.",
-      "Verificar refrigeração de alta pressão.",
-      "Avaliar altura das ferramentas."
+      "Avaliar dimensional da peça, incluindo a passada de todas as ferramentas ex.: profundidade da broca, depois profundidade da interna...).",
+      "Verificar as refrigerações de alta pressão se estão funcionando em todas as ferramentas.",
+      "Avaliar altura das ferramentas, passar relógio."
     ]
   },
 
@@ -82,11 +82,13 @@
     ],
     "priority": "high",
     "actions": [
-      "Verificar pressão pneumática da ejeção.",
-      "Avaliar presença de cavacos na região do extrator.",
-      "Conferir alinhamento do sistema de ejeção.",
-      "Verificar desgaste mecânico do mecanismo de ejeção.",
-      "Realizar limpeza da região do contra fuso."
+      "Verificar se tem matéria prima.",
+      "Avaliar dimensional da peça. Se caso o diâmetro maior aonde o pega agarra a peça estiver muito maior ou menor, a pinça não vai conseguir segurar a peça. ",
+      "Abrir contra fuso e verificar se tem peças presas devido a cavaco",
+      "Avaliar em M01 se o pega está indo até o contra fuso e fechando a pinça corretamente. Após pegar a peça avaliar manualmente se a peça está bem fixa no contra fuso.",
+      "Verificar a distância do cano que ejeta a peça, e se está conectado na parte interna da máquina. Ver preset (distância cano e contra fuso) e fazer o aperto do cano.",
+      "Verificar se as ferramentas da segunda operação não estão quebradas.",
+      "Avaliar pressão da refrigeração de ejeção, se caso estiver fraca acionar a manutenção."
     ]
   },
 
@@ -101,11 +103,15 @@
     ],
     "priority": "high",
     "actions": [
-      "Verificar avanço programado.",
-      "Avaliar desgaste da ferramenta.",
-      "Conferir altura da ferramenta.",
-      "Verificar refrigeração da operação.",
-      "Avaliar interferências mecânicas e colisões."
+      "Avaliar se a refrigeração de alta pressão estão funcionando e retirar o stop das ferramentas que tem alta pressão.",
+      "Tentar analisar qual ferramenta quebra primeiro.",
+      "Avaliar condições das ferramentas, e fixação e encosto do batente dos suportes das ferramentas.",
+      "Avaliar pressão do contra fuso.",
+      "Avaliar sobre metal da peça do contra fuso . retirada do contra fuso. (COMP. TOTAL DA PEÇA + 0.1) Corregir no $1 torre 21. (+ Diminui / - Aumenta o sobremetal).",
+      "Avaliar se o faceamento não está deixando bico de usinagem.",
+      "Avaliar dimensional da peça, incluindo a passada de todas as ferramentas ex.: profundidade da broca, depois profundidade da interna...).",
+      "Verificar altura, passar relógio nas ferramentas que tem necessidade.",
+      "Analisar se nos dados T ou corretor os parametros em X, Z e R estão corretos, Em caso de duvidas procurar o preparador."
     ]
   },
 
@@ -120,11 +126,15 @@
     ],
     "priority": "high",
     "actions": [
-      "Verificar avanço e rotação utilizados.",
-      "Avaliar desgaste da ferramenta.",
-      "Conferir refrigeração da usinagem.",
-      "Verificar altura e alinhamento da ferramenta.",
-      "Inspecionar possíveis vibrações no processo."
+     "Avaliar se a refrigeração de alta pressão estão funcionando e retirar o stop das ferramentas que tem alta pressão.",
+      "Tentar analisar qual ferramenta quebra primeiro.",
+      "Avaliar condições das ferramentas, e fixação e encosto do batente dos suportes das ferramentas.",
+      "Avaliar pressão do fuso principal.",
+      "Verificar se após sangrar a peça está faceando a barra no fuso principal com a ferramenta de desbaste ou acabamento. (0.1 de retirada de material)  Corregir no $1 torre 1.(- Diminui / + Aumenta o sobremetal)",
+      "Avaliar se o acabamento no momento de facear não está deixando bico de usinagem.",
+      "Avaliar dimensional da peça, incluindo a passada de todas as ferramentas ex.: profundidade da broca, depois profundidade da interna...).",
+      "Verificar altura, passar relógio nas ferramentas que tem necessidade.",
+      "Analisar se nos dados T ou corretor os parametros em X, Z e R estão corretos, Em caso de duvidas procurar o preparador."
     ]
   },
 
@@ -139,11 +149,9 @@
     ],
     "priority": "medium",
     "actions": [
-      "Verificar direcionamento do fluido refrigerante.",
-      "Ajustar posição do bico de refrigeração.",
-      "Conferir pressão da refrigeração.",
-      "Avaliar acúmulo de cavacos na região.",
-      "Validar refrigeração correta da ferramenta utilizada."
+      "Avaliar condições das ferramentas, fixação e encosto do batente dos suportes das ferramentas.",
+      "Verificar se após sangrar a peça está faceando a barra no fuso principal com a ferramenta de desbaste ou acabamento. (0.1 de retirada de material)  Corrigir no $1 torre 1.(- Diminui / + Aumenta o sobremetal). Verificar se a peça está com sobremetal (COMP. TOTAL DA PEÇA + 0.1), retirada do contra fuso. Corrigir no $1 torre 21. (+ Diminui / - Aumenta o sobremetal).",
+      "Verificar altura das ferramentas com relógio."
     ]
   }
 ]
