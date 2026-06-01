@@ -357,6 +357,55 @@ button:hover{
 
 }
 
+/* BOTÃO PDF */
+
+.pdf-button{
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 25px;
+
+  padding: 14px 22px;
+
+  background: #dc2626;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 14px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+}
+
+.pdf-button:hover{
+
+  background: #b91c1c;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 15px rgba(220, 38, 38, 0.35);
+
+}
+
+.pdf-button i{
+
+  font-size: 1.1rem;
+
+}
+
 /* RESPONSIVO */
 
 @media(max-width: 768px){
@@ -483,5 +532,33 @@ button:hover{
     padding: 15px;
 
   }
+
+  .pdf-button{
+
+    width: 100%;
+
+    padding: 15px;
+
+    font-size: 0.95rem;
+
+  }
+
+
+}
+.footer{
+
+  margin-top: 40px;
+
+  text-align: center;
+
+  color: #64748b;
+
+  font-size: 0.85rem;
+
+  line-height: 1.8;
+
+  border-top: 1px solid #334155;
+
+  padding-top: 20px;
 
 }

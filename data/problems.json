@@ -22,6 +22,7 @@
   {
     "machine": "TNL 12.1",
     "problem": "MARCAS DO AGARRE DO PEGA NA PEÇA",
+    "pdf": "assets/pdf/marcas-agarre-pega.pdf",
     "keywords": [
       "marcas",
       "agarre",

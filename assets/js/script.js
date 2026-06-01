@@ -49,17 +49,11 @@ machineCards.forEach(card => {
 
   card.addEventListener("click", () => {
 
-    /* REMOVE SELEÇÃO ANTERIOR */
-
     machineCards.forEach(c =>
       c.classList.remove("active")
     );
 
-    /* ADICIONA CARD ATIVO */
-
     card.classList.add("active");
-
-    /* PEGA NOME DA MÁQUINA */
 
     selectedMachine =
       card.dataset.machine;
@@ -69,11 +63,7 @@ machineCards.forEach(card => {
       selectedMachine
     );
 
-    /* CARREGA PROBLEMAS */
-
     loadProblemOptions();
-
-    /* LIMPA RESULTADO */
 
     result.innerHTML = `
 
@@ -97,8 +87,6 @@ machineCards.forEach(card => {
 
 function loadProblemOptions(){
 
-  /* LIMPA SELECT */
-
   problemSelect.innerHTML = `
 
     <option value="">
@@ -107,14 +95,10 @@ function loadProblemOptions(){
 
   `;
 
-  /* FILTRA PROBLEMAS */
-
   const filteredProblems =
     problems.filter(problem =>
       problem.machine === selectedMachine
     );
-
-  /* ADICIONA OPTIONS */
 
   filteredProblems.forEach(problem => {
 
@@ -213,6 +197,30 @@ function showSolution(){
 
     });
 
+    /* BOTÃO PDF */
+
+    let pdfButton = "";
+
+    if(foundProblem.pdf){
+
+      pdfButton = `
+
+        <a
+          href="${foundProblem.pdf}"
+          target="_blank"
+          class="pdf-button"
+        >
+
+          <i class="fa-solid fa-file-pdf"></i>
+
+          Abrir Procedimento Completo
+
+        </a>
+
+      `;
+
+    }
+
     result.innerHTML = `
 
       <h2 class="result-title">
@@ -222,6 +230,8 @@ function showSolution(){
       <div class="steps">
         ${actionsHTML}
       </div>
+
+      ${pdfButton}
 
     `;
 
